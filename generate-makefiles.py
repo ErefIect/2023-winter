@@ -34,14 +34,12 @@ for dir in dirs:
         target_lst, recipes = [], []
         
         def unique_append(lst: list, target) -> (list, object):
-            actual_target = target
-            if not target in lst:
+            if not (actual_target := target) in lst:
                 lst.append(actual_target)
                 return lst, actual_target
             suffix = 1
-            while (target + str(suffix)) in lst:
+            while (actual_target := target + str(suffix)) in lst:
                 suffix += 1
-            actual_target = target + str(suffix)
             lst.append(actual_target)
             return lst, actual_target
 
